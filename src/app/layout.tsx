@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
 import { inter } from '@/config/fonts';
 
 
@@ -8,7 +8,7 @@ import './globals.css';
 
 
 export const metadata: Metadata = {
-  title: 'App | Shop',
+  title: 'Teslo | Shop',
   description: 'Una tienda virtual de productos',
 }
 
