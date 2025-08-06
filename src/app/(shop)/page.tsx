@@ -1,4 +1,4 @@
-import { getProducts } from '@/actions/products/product-pagination';
+import { getProducts } from '@/actions/product/product-pagination';
 import { ProductGrid, Title } from '@/components';
 import { Pagination } from '@/components/pagination/Pagination';
 import { redirect } from 'next/navigation';

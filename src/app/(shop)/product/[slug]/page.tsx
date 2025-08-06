@@ -12,7 +12,7 @@ import {
   StockLabel,
 } from "@/components";
 import { AddToCart } from './ui/AddToCart';
-import { getProductBySlug } from "@/actions/products/get-product-by-slug";
+import { getProductBySlug } from "@/actions/product/get-product-by-slug";
 
 interface Props {
   params: {
