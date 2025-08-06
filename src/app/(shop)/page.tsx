@@ -1,26 +1,26 @@
+import { getProducts } from '@/actions/products/product-pagination';
 import { ProductGrid, Title } from '@/components';
-import { Product } from '@/interfaces';
+import { Pagination } from '@/components/pagination/Pagination';
+import { redirect } from 'next/navigation';
 
-
-const getProducts = async() => {
-
-  try {
-    return await fetch(`http://localhost:3001/api/products?limit=100&offset=0`,{
-      // cache: 'force-cache',
-      next: {
-        revalidate: 60 * 60 * 30 * 6
-      }
-    }).then( resp => resp.json() );
-    
-  } catch (error) {
-   // notFound();
+interface Props {
+  searchParams: {
+    page?: string; 
   }
-
 }
 
-export default async function Home() {
-    const products: Product[] = await getProducts();
-console.log(products);
+export default async function Home({ searchParams }: Props) {
+
+  const page = searchParams.page ? parseInt( searchParams.page ) : 1;
+
+  const { products, currentPage, totalPages } = await getProducts({ page });
+
+
+  if ( products.length === 0 ) {
+    redirect('/');
+  }
+
+
   return (
     <>
       <Title
@@ -33,6 +33,7 @@ console.log(products);
         products={ products }
       />
       
+       <Pagination totalPages={ totalPages } />
     </>
   );
 }
