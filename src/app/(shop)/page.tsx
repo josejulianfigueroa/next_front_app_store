@@ -1,12 +1,26 @@
 import { ProductGrid, Title } from '@/components';
-import { initialData } from '@/seed/seed';
+import { Product } from '@/interfaces';
 
 
-const products = initialData.products;
+const getProducts = async() => {
 
+  try {
+    return await fetch(`http://localhost:3001/api/products?limit=100&offset=0`,{
+      // cache: 'force-cache',
+      next: {
+        revalidate: 60 * 60 * 30 * 6
+      }
+    }).then( resp => resp.json() );
+    
+  } catch (error) {
+   // notFound();
+  }
 
+}
 
-export default function Home() {
+export default async function Home() {
+    const products: Product[] = await getProducts();
+console.log(products);
   return (
     <>
       <Title
