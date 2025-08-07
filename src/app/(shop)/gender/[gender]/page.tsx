@@ -21,7 +21,7 @@ export default async function GenderByPage({ params, searchParams }: Props) {
 
   const { gender } = params;
 
-   if ( gender !== 'Men' && gender !== 'Women' && gender !== 'Kids' ) {
+   if ( gender !== 'men' && gender !== 'women' && gender !== 'kid' ) {
       notFound();
   }
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Title } from '@/components';
+import { QuantitySelector, Title } from '@/components';
 import { initialData } from '@/seed/seed';
 import Image from 'next/image';
 
