@@ -4,7 +4,7 @@ export const getCountries = async () => {
 
   try {
     //  await sleep(3);
-    return await fetch(`http://localhost:3001/api/orders/countries`,{
+    return await fetch(`http://localhost:3001/api/orders/countries/get`,{
       // cache: 'force-cache',
       next: {
         revalidate: 60 * 60 * 30 * 6

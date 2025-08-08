@@ -13,9 +13,8 @@ import {
   IoShirtOutline,
   IoTicketOutline,
 } from "react-icons/io5";
-
 import { useUIStore } from "@/store";
-import { logout } from "@/actions";
+import { logout } from "@/actions/auth/logout";
 
 export const Sidebar = () => {
   const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
@@ -79,7 +78,8 @@ export const Sidebar = () => {
             </Link>
 
             <Link
-              href="/"
+              href="/orders"
+              onClick={() => closeMenu()}
               className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
             >
               <IoTicketOutline size={30} />

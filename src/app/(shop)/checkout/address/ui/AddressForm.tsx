@@ -55,14 +55,13 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
   },[])
   
 
-
-
-
   const onSubmit = async( data: FormInputs ) => {
     
 
-    setAddress(data);
     const { rememberAddress, country, ...restAddress } = data;
+     setAddress({
+      ...restAddress,
+      country});
 
     const dataAddress = {
       ...restAddress,
