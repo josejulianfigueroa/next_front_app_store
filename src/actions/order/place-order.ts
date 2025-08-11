@@ -26,10 +26,7 @@ export const placeOrder = async (
 
 try {
 const method = 'POST';
-console.log(JSON.stringify( {
-              products: productIds,
-              address: address,
-            } ));
+
 return await fetch(`http://localhost:3001/api/orders/create/order`,{
         method,
             headers: {

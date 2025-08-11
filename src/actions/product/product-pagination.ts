@@ -8,7 +8,7 @@ interface PaginationOptions {
   gender?: string;
 }
 
-export const getProducts = async ({
+export const getPaginatedProductsWithImages = async ({
   page = 1,
   take = 10,
   gender = '',

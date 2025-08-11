@@ -1,5 +1,5 @@
 
-import { getProducts } from '@/actions/product/product-pagination';
+import { getPaginatedProductsWithImages } from '@/actions/product/product-pagination';
 import { ProductGrid, Title } from '@/components';
 import { Pagination } from '@/components/pagination/Pagination';
 
@@ -27,7 +27,7 @@ export default async function GenderByPage({ params, searchParams }: Props) {
 
   const page = searchParams.page ? parseInt( searchParams.page ) : 1;
 
-  const { products, currentPage, totalPages } = await getProducts({ 
+  const { products, currentPage, totalPages } = await getPaginatedProductsWithImages({ 
     page, 
     gender,
   });

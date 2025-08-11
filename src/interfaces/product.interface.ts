@@ -14,6 +14,22 @@ export interface Product {
   productCategory: ProductCategory
 }
 
+export interface ProductWithImagesData {
+  id: string;
+  description: string;
+  images: ProductImage[];
+  stock: number;
+  price: number;
+  sizes: Size[];
+  slug: string;
+  tags: string[];
+  title: string;
+  type: Type;
+  gender: Category;
+  user: any;
+  productCategory: ProductCategory
+}
+
 export interface CartProduct {
   id: string;
   slug: string;
@@ -23,6 +39,12 @@ export interface CartProduct {
   size: Size;
   image: string;
 }
+
+export interface ProductImage {
+  id: number;
+  url: string;
+}
+
 
 export type Category = 'men'|'women'|'kid'|'unisex';
 export type Size = 'XS'|'S'|'M'|'L'|'XL'|'XXL'|'XXXL';
