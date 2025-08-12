@@ -3,7 +3,7 @@
 export const getProductBySlug = async ( slug: string ) => {
 
   try {
-    return await fetch(`http://localhost:3001/api/products/${slug}`,{
+    return await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/products/${slug}`,{
       // cache: 'force-cache',
       next: {
         revalidate: 60 * 60 * 30 * 6
@@ -19,7 +19,7 @@ export const getProductBySlug = async ( slug: string ) => {
 export const getProductBySlugImages = async ( slug: string ) => {
 
   try {
-    return await fetch(`http://localhost:3001/api/products/images/${slug}`,{
+    return await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/products/images/${slug}`,{
       // cache: 'force-cache',
       next: {
         revalidate: 60 * 60 * 30 * 6

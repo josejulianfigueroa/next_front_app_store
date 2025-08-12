@@ -6,7 +6,7 @@ export const getApiLogin = async ( email: string, password: string ) => {
     const method = 'POST';
     const data = { email, password };
 
-    return await fetch(`http://localhost:3001/api/auth/login`,{
+    return await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/auth/login`,{
         method,
             headers: {
                 'Content-type': 'application/json'

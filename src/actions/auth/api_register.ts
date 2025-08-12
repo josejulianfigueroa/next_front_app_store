@@ -6,7 +6,7 @@ export const getApiRegister = async ( name: string, email: string, password: str
     const method = 'POST';
     const data = { email, password, fullName : name };
 
-    return await fetch(`http://localhost:3001/api/auth/register`,{
+    return await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/auth/register`,{
         method,
             headers: {
                 'Content-type': 'application/json'

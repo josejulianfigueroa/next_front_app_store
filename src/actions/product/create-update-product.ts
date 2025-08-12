@@ -71,7 +71,7 @@ if(id){
 
   const { id, categoryId, tags, ...restProduct } = product;
 
-productSave = await fetch(`http://localhost:3001/api/products/${id}`,{
+productSave = await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/products/${id}`,{
         method: 'PATCH',
             headers: {
                 'Content-type': 'application/json',
@@ -91,7 +91,7 @@ productSave = await fetch(`http://localhost:3001/api/products/${id}`,{
 
   const { id, categoryId, tags, ...restProduct } = product;
 
-productSave = await fetch(`http://localhost:3001/api/products`,{
+productSave = await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/products`,{
         method,
             headers: {
                 'Content-type': 'application/json',
@@ -120,7 +120,7 @@ productSave = await fetch(`http://localhost:3001/api/products`,{
           throw new Error('No se pudo cargar las imágenes, rollingback');
         }
 
-        await fetch(`http://localhost:3001/api/products/images/update/${productSave.id}`,{
+        await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/products/images/update/${productSave.id}`,{
         method: 'PATCH',
             headers: {
                 'Content-type': 'application/json',

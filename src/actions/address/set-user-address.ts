@@ -27,7 +27,7 @@ const createOrReplaceAddress = async (address: Address, token: string) => {
    const method = 'POST';
 
       try {
-    return await fetch(`http://localhost:3001/api/orders/address/user`,{
+    return await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/orders/address/user`,{
         method,
             headers: {
                 'Content-type': 'application/json',

@@ -15,7 +15,7 @@ export const getPaginatedProductsWithImages = async ({
 }: PaginationOptions) => {
 
   try {
-    return await fetch(`http://localhost:3001/api/products?page=${page}&take=${take}&gender=${gender}`,{
+    return await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/products?page=${page}&take=${take}&gender=${gender}`,{
       // cache: 'force-cache',
       next: {
         revalidate: 60 * 60 * 30 * 6

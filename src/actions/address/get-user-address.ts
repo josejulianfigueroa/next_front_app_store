@@ -6,7 +6,7 @@ export const getUserAddress = async( token: string ) => {
     
     const method = 'GET';
     
-   const address = await fetch(`http://localhost:3001/api/orders/address/get`,{
+   const address = await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/orders/address/get`,{
         method,
             headers: {
                 'Content-type': 'application/json',

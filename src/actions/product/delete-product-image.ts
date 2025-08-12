@@ -24,7 +24,7 @@ export const deleteProductImage = async( imageId: number, imageUrl: string, slug
     await cloudinary.uploader.destroy( imageName );
 
       const method= 'DELETE';
-        await fetch(`http://localhost:3001/api/products/images/delete/${imageId}`,{
+        await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/products/images/delete/${imageId}`,{
         method,
       // cache: 'force-cache',
       next: {

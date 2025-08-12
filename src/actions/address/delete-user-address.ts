@@ -7,7 +7,7 @@ export const deleteUserAddress = async( token: string ) => {
 
      const method = 'DELETE';
 
-    await fetch(`http://localhost:3001/api/orders/address/delete`,{
+    await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/orders/address/delete`,{
         method,
             headers: {
                 'Content-type': 'application/json',

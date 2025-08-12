@@ -27,7 +27,7 @@ export const placeOrder = async (
 try {
 const method = 'POST';
 
-return await fetch(`http://localhost:3001/api/orders/create/order`,{
+return await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/orders/create/order`,{
         method,
             headers: {
                 'Content-type': 'application/json',

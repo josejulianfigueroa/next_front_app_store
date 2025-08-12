@@ -38,7 +38,7 @@ export const paypalCheckPayment = async (paypalTransactionId: string) => {
 
  const method = 'POST';
 
-    const order = await fetch(`http://localhost:3001/api/orders/update/order/${orderId}`,{
+    const order = await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/orders/update/order/${orderId}`,{
         method,
             headers: {
                 'Content-type': 'application/json',      },
