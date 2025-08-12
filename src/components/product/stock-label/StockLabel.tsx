@@ -26,7 +26,7 @@ export const StockLabel = ({ slug }: Props) => {
   };
   
     getStock();
-  }, []);
+  }, [slug]);
 
 
 
