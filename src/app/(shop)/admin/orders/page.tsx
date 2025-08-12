@@ -3,6 +3,8 @@ export const revalidate = 0;
 import { getPaginatedOrders } from "@/actions/order/get-paginated-orders";
 import { Title } from "@/components";
 import { Pagination } from "@/components/pagination/Pagination";
+import { OrdersAll } from "@/interfaces/orders-all.interface";
+import { Order } from "@/interfaces/orders.interface";
 // https://tailwindcomponents.com/component/hoverable-table
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -51,7 +53,7 @@ export default async function OrdersPage() {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {orders.map((order: OrdersAll) => (
               <tr
                 key={order.id}
                 className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
@@ -60,7 +62,7 @@ export default async function OrdersPage() {
                   {order.id.split("-").at(-1)}
                 </td>
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {order.orderAddress?.firstName} {order.orderAddress?.lastName}
+                  {order.orderAddress[0].firstName} {order.orderAddress[0].lastName}
                 </td>
                 <td className="flex items-center text-sm  text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   {order.isPaid ? (

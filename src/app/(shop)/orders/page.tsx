@@ -3,6 +3,7 @@ export const revalidate = 0;
 import { getOrdersByUser } from "@/actions/order/get-orders-by-user";
 // https://tailwindcomponents.com/component/hoverable-table
 import { Title } from "@/components";
+import { Order } from "@/interfaces/orders.interface";
 
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -50,7 +51,7 @@ export default async function OrdersPage() {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {orders.map((order: Order) => (
               <tr
                 key={order.id}
                 className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"

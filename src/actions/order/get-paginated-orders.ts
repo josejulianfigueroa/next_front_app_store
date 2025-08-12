@@ -1,6 +1,7 @@
 'use server';
 
 import { auth } from '@/auth.config';
+import { OrdersAll } from '@/interfaces/orders-all.interface';
 
 
 export const getPaginatedOrders = async() => {
@@ -15,7 +16,7 @@ export const getPaginatedOrders = async() => {
   }
 
   const method = 'GET';
-    const orders = await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/orders/get/all`, {
+    const orders: OrdersAll[] = await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/orders/get/all`, {
         method,
             headers: {
                 'Content-type': 'application/json',        },

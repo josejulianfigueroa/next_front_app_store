@@ -1,6 +1,7 @@
 'use server';
 
 import { auth } from '@/auth.config';
+import { Order } from '@/interfaces/orders.interface';
 
 
 export const getOrdersByUser = async() => {
@@ -17,7 +18,7 @@ const token = session?.user.token || '';
 
   try {
     const method = 'GET';
-    const orders = await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/orders/user/order`, {
+    const orders: Order[] = await fetch(`${ process.env.NEXT_PUBLIC_BACKEND_URL }/orders/user/order`, {
         method,
             headers: {
                 'Content-type': 'application/json',

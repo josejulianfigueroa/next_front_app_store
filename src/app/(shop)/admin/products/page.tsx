@@ -4,6 +4,7 @@ import { getPaginatedProductsWithImages } from "@/actions/product/product-pagina
 import { Title } from "@/components";
 import { Pagination } from "@/components/pagination/Pagination";
 import { ProductImage } from "@/components/product/product-image/ProductImage";
+import { Product } from "@/interfaces/response-products-paginate.interface";
 // https://tailwindcomponents.com/component/hoverable-table
 import { currencyFormat } from "@/utils";
 import Image from "next/image";
@@ -77,7 +78,7 @@ export default async function OrdersPage({ searchParams }: Props) {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
+            {products.map((product: Product) => (
               <tr
                 key={product.id}
                 className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
@@ -85,7 +86,7 @@ export default async function OrdersPage({ searchParams }: Props) {
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                   <Link href={`/product/${product.slug}`}>
                     <ProductImage
-                      src={ product.images[0]?.url }
+                      src={ product.images[0] }
                       width={80}
                       height={80}
                       alt={product.title}

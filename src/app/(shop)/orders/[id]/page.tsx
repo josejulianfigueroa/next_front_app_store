@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 import { currencyFormat } from "@/utils";
 import { PayPalButton } from "@/components/paypal/PayPalButton";
 import { OrderStatus } from "@/components/orders/OrderStatus";
+import { OrderItem } from "@/interfaces/orders.interface";
 
 
 interface Props {
@@ -53,9 +54,9 @@ export default async function OrdersByIdPage({ params }: Props) {
             </div>
 
             {/* Items */}
-            {order!.orderItem.map((item) => (
+            {order!.orderItem.map((item: OrderItem) => (
               <div
-                key={item.product.slug + "-" + item.size + item.quantity}
+                key={item.product.slug + "-" + item.product.sizes[0] + item.quantity}
                 className="flex mb-5"
               >
                 <Image
@@ -73,7 +74,7 @@ export default async function OrdersByIdPage({ params }: Props) {
                 <div>
                   <p>{item.product.title}</p>
                   <p>
-                    ${item.price} x {item.quantity}
+                    ${item.product.price} x {item.quantity}
                   </p>
                   <p className="font-bold">
                     Subtotal: {currencyFormat(item.product.price * item.quantity)}
